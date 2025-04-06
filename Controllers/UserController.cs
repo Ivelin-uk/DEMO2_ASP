@@ -9,6 +9,17 @@ public class UserController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult Register(User user)
+    {
+        if (ModelState.IsValid)
+        {
+            return View("Success");
+        }
+
+        return View(user);
+    }
+
     [HttpGet]
     public IActionResult Login()
     {
