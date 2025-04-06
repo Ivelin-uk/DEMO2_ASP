@@ -29,3 +29,16 @@
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.genruntimeconfig.cache
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/ref/MyMvcApp.dll
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.sourcelink.json
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.csproj.AssemblyReference.cache
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/MySqlConnector.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.csproj.CopyComplete

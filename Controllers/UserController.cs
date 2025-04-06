@@ -1,28 +1,46 @@
 using Microsoft.AspNetCore.Mvc;
+using MyMvcApp.Data;         // ✅ това ти дава достъп до AppDbContext
+using MyMvcApp.Models;       // ✅ това ти дава достъп до User
+using Microsoft.EntityFrameworkCore;
 
-public class UserController : Controller
+namespace MyMvcApp.Controllers
 {
-    // Показва формата за регистрация
-    [HttpGet]
-    public IActionResult Register()
+    public class UserController : Controller
     {
-        return View();
-    }
+        // ✅ ТУК ДЕФИНИРАМЕ _context
+        private readonly AppDbContext _context;
 
-    [HttpPost]
-    public IActionResult Register(User user)
-    {
-        if (ModelState.IsValid)
+        // ✅ ТУК ГО ПОЛУЧАВАМЕ чрез Dependency Injection
+        public UserController(AppDbContext context)
         {
-            return View("Success", user);
+            _context = context;
         }
 
-        return View(user);
-    }
+        // 👉 GET: /User/Register
+        public IActionResult Register()
+        {
+            return View();
+        }
 
-    [HttpGet]
-    public IActionResult Login()
-    {
-        return View();
+        // 👉 POST: /User/Register
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index","Home");
+            }
+
+            return View(user);
+        }
+
+        // 👉 Списък с потребители
+        public async Task<IActionResult> Index()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
+        }
     }
 }
