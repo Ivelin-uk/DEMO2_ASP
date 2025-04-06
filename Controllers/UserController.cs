@@ -8,4 +8,10 @@ public class UserController : Controller
     {
         return View();
     }
+
+    [HttpGet]
+    public IActionResult Login()
+    {
+        return View();
+    }
 }
