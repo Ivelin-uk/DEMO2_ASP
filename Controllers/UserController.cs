@@ -14,7 +14,7 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
-            return View("Success");
+            return View("Success", user);
         }
 
         return View(user);
