@@ -28,3 +28,4 @@
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.pdb
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.genruntimeconfig.cache
 /Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/ref/MyMvcApp.dll
+/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/Debug/net8.0/MyMvcApp.sourcelink.json
