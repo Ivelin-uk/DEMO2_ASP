@@ -22,15 +22,21 @@ namespace MyMvcApp.Controllers
             return View();
         }
 
-        // 👉 POST: /User/Register
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
+            // Проверка дали имейлът вече съществува
+            if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+            {
+                ModelState.AddModelError("Email", "Имейлът вече е регистриран.");
+                return View(user);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Users","User");
+                return RedirectToAction("Users", "User");
             }
 
             return View(user);
@@ -77,13 +83,19 @@ namespace MyMvcApp.Controllers
             return View(user);
         }
 
-        // 👉 POST: /User/Edit/{id}
         [HttpPost]
         public async Task<IActionResult> Edit(int id, User updatedUser)
         {
             if (id != updatedUser.Id)
             {
                 return BadRequest();
+            }
+
+            // Проверка дали имейлът вече е записан за друг потребител
+            if (await _context.Users.AnyAsync(u => u.Email == updatedUser.Email && u.Id != updatedUser.Id))
+            {
+                ModelState.AddModelError("Email", "Имейлът вече е регистриран за друг потребител.");
+                return View(updatedUser);
             }
 
             if (ModelState.IsValid)
