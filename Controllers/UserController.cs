@@ -30,16 +30,23 @@ namespace MyMvcApp.Controllers
             {
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Users","User");
             }
 
             return View(user);
         }
 
         // 👉 Списък с потребители
-        public async Task<IActionResult> Index()
+       public async Task<IActionResult> Users()
         {
             var users = await _context.Users.ToListAsync();
+
+            // Проверка дали има данни
+            if (users == null || !users.Any())
+            {
+                return Content("Няма налични потребители в базата данни.");
+            }
+
             return View(users);
         }
     }
