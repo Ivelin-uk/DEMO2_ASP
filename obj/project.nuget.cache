@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1M+WoH3lLTLGcwiQdCgCjtqNm5ITZXoPw5XATJyk7jGSG1X6VkAm4Ozi5fFhoUVYsbM5YfljF+6uiCnvpFskXQ==",
+  "dgSpecHash": "apjH4Iq4BxUueE/t4aBbs3DHYy2Vasn/hvb+E6qSs+zIQ885oKPMlPwZjLEcDN4paH6cKZXkOYwpSx3i2Nlpug==",
   "success": true,
-  "projectFilePath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/MyMvcApp.csproj",
+  "projectFilePath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj",
   "expectedPackageFiles": [
     "/Users/ivelindilqnovmihaylov/.nuget/packages/microsoft.entityframeworkcore/8.0.13/microsoft.entityframeworkcore.8.0.13.nupkg.sha512",
     "/Users/ivelindilqnovmihaylov/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.13/microsoft.entityframeworkcore.abstractions.8.0.13.nupkg.sha512",

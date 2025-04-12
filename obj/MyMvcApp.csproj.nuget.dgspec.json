@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/MyMvcApp.csproj": {}
+    "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj": {}
   },
   "projects": {
-    "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/MyMvcApp.csproj": {
+    "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/MyMvcApp.csproj",
+        "projectUniqueName": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj",
         "projectName": "MyMvcApp",
-        "projectPath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/MyMvcApp.csproj",
+        "projectPath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj",
         "packagesPath": "/Users/ivelindilqnovmihaylov/.nuget/packages/",
-        "outputPath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/MyMvcApp/obj/",
+        "outputPath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ivelindilqnovmihaylov/.nuget/NuGet/NuGet.Config"
