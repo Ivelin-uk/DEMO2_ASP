@@ -14,11 +14,16 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.FirstName @user.LastName</td> 
+                <td>@user.FirstName @user.LastName</td>
                 <td>@user.Email</td>
                 <td>
-                    <a href="#" class="btn btn-primary">Редактирай</a>
-                    <a href="#" class="btn btn-danger">Изтрий</a>
+                    <a asp-action="Edit" asp-controller="User" asp-route-id="@user.Id" class="btn btn-primary">Редактирай</a>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-controller="User" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@user.Id" />
+                        <button type="submit" class="btn btn-danger">Изтрий</button>
+                    </form>
                 </td>
             </tr>
         }

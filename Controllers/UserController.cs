@@ -37,7 +37,7 @@ namespace MyMvcApp.Controllers
         }
 
         // 👉 Списък с потребители
-       public async Task<IActionResult> Users()
+        public async Task<IActionResult> Users()
         {
             var users = await _context.Users.ToListAsync();
 
@@ -48,6 +48,63 @@ namespace MyMvcApp.Controllers
             }
 
             return View(users);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Users","User");
+        }
+
+        // 👉 GET: /User/Edit/{id}
+        public async Task<IActionResult> Edit(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        // 👉 POST: /User/Edit/{id}
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, User updatedUser)
+        {
+            if (id != updatedUser.Id)
+            {
+                return BadRequest();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(updatedUser);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Users");
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Users.Any(u => u.Id == id))
+                    {
+                        return NotFound();
+                    }
+                    throw;
+                }
+            }
+
+            return View(updatedUser);
         }
     }
 }
