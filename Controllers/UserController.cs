@@ -48,25 +48,24 @@ namespace MyMvcApp.Controllers
             return View();
         }
 
-        // 👉 POST: /User/Login
-        [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
+       [HttpPost]
+    public async Task<IActionResult> Login(string email, string password)
+    {
+        // Проверка за съществуващ потребител с въведения имейл и парола
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+        if (user == null)
         {
-            // Проверка за съществуващ потребител с въведения имейл и парола
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
-            if (user == null)
-            {
-                // Ако потребителят не е намерен, добавяме грешка в ModelState
-                ModelState.AddModelError(string.Empty, "Невалиден имейл или парола.");
-                return View();
-            }
-
-            // Съхраняване на името на потребителя в сесията
-            HttpContext.Session.SetString("UserName", $"{user.FirstName} {user.LastName}");
-
-            // Пренасочване към списъка с потребители
-            return RedirectToAction("Users", "User");
+            // Ако потребителят не е намерен, добавяме грешка в ModelState
+            ModelState.AddModelError(string.Empty, "Грешен имейл или парола. Моля, опитайте отново.");
+            return View();
         }
+
+        // Съхраняване на името на потребителя в сесията
+        HttpContext.Session.SetString("UserName", $"{user.FirstName} {user.LastName}");
+
+        // Пренасочване към списъка с потребители
+        return RedirectToAction("Users", "User");
+    }
 
         // 👉 GET: /User/Logout
         public IActionResult Logout()

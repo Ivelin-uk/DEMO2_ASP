@@ -2,6 +2,16 @@
 
 <h1>Вход</h1>
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
 <form asp-action="Login" method="post">
     <div class="form-group">
         <label asp-for="Email"></label>
