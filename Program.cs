@@ -6,6 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthorization(); // ✅ Добави това
+builder.Services.AddHttpContextAccessor();
+
+
+// Добавяне на услуги за сесии
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Време на изтичане на сесията
+    options.Cookie.HttpOnly = true; // Сесийните бисквитки са достъпни само чрез HTTP
+    options.Cookie.IsEssential = true; // Сесийните бисквитки са необходими за функционалността
+});
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -27,6 +38,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession(); // ✅ Активиране на сесиите
 app.UseAuthorization();
 
 app.MapControllerRoute(

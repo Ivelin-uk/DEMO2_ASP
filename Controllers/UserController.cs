@@ -48,24 +48,45 @@ namespace MyMvcApp.Controllers
             return View();
         }
 
-       // 👉 POST: /User/Login
+        // 👉 POST: /User/Login
         [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
+            // Проверка за съществуващ потребител с въведения имейл и парола
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
             if (user == null)
             {
+                // Ако потребителят не е намерен, добавяме грешка в ModelState
                 ModelState.AddModelError(string.Empty, "Невалиден имейл или парола.");
                 return View();
             }
 
-            // TODO: Добавете логика за съхранение на сесия или токен
+            // Съхраняване на името на потребителя в сесията
+            HttpContext.Session.SetString("UserName", $"{user.FirstName} {user.LastName}");
+
+            // Пренасочване към списъка с потребители
             return RedirectToAction("Users", "User");
+        }
+
+        // 👉 GET: /User/Logout
+        public IActionResult Logout()
+        {
+            // Изчистване на сесията
+            HttpContext.Session.Clear();
+
+            // Пренасочване към страницата за логване
+            return RedirectToAction("Login", "User");
         }
 
         // 👉 Списък с потребители
         public async Task<IActionResult> Users()
         {
+             // Проверка дали потребителят е логнат
+            if (HttpContext.Session.GetString("UserName") == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
             var users = await _context.Users.ToListAsync();
 
             // Проверка дали има данни
