@@ -36,10 +36,31 @@ namespace MyMvcApp.Controllers
             {
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Users", "User");
+                return RedirectToAction("Login", "User");
             }
 
             return View(user);
+        }
+
+         // 👉 GET: /User/Register
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+       // 👉 POST: /User/Login
+        [HttpPost]
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Невалиден имейл или парола.");
+                return View();
+            }
+
+            // TODO: Добавете логика за съхранение на сесия или токен
+            return RedirectToAction("Users", "User");
         }
 
         // 👉 Списък с потребители
