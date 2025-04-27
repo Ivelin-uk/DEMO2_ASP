@@ -10,10 +10,12 @@ namespace MyMvcApp.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Моля, въведете име.")]
+        [StringLength(50, ErrorMessage = "Името трябва да бъде до 50 символа.")]
         [Column("FirstName")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Моля, въведете фамилия.")]
+        [StringLength(50, ErrorMessage = "Фамилията трябва да бъде до 50 символа.")]
         [Column("LastName")]
         public string LastName { get; set; }
 
@@ -28,8 +30,8 @@ namespace MyMvcApp.Models
         [Column("Password")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Моля, изберете роля.")]
         [Column("Role")]
-        public string Role { get; set; } 
+        public string Role { get; set; } = "User"; // Роля по подразбиране
     }
 }

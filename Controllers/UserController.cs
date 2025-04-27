@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyMvcApp.Data;         // ✅ това ти дава достъп до AppDbContext
 using MyMvcApp.Models;       // ✅ това ти дава достъп до User
 using Microsoft.EntityFrameworkCore;
+using BCrypt.Net;
 
 namespace MyMvcApp.Controllers
 {
@@ -26,20 +27,40 @@ namespace MyMvcApp.Controllers
         public async Task<IActionResult> Register(User user)
         {
             // Проверка дали имейлът вече съществува
-            if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+            // if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+            // {
+            //     ModelState.AddModelError("Email", "Имейлът вече е регистриран.");
+            //     return View(user);
+            // }
+
+            // Проверка на валидността на модела
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("Email", "Имейлът вече е регистриран.");
                 return View(user);
             }
 
-            if (ModelState.IsValid)
+            try
             {
+                user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
+
+                // Съобщение за успешно регистриране
+                TempData["SuccessMessage"] = "Регистрацията беше успешна! Моля, влезте в профила си.";
+
+                // Пренасочване към страницата за логване
                 return RedirectToAction("Login", "User");
             }
+            catch (Exception ex)
+            {
+                // Логване на грешката (по желание)
+                Console.WriteLine($"Грешка при регистрация: {ex.Message}");
 
-            return View(user);
+                // Добавяне на грешка в ModelState
+                ModelState.AddModelError(string.Empty, "Възникна грешка при регистрацията. Моля, опитайте отново.");
+                return View(user);
+            }
         }
 
          // 👉 GET: /User/Register
@@ -48,24 +69,24 @@ namespace MyMvcApp.Controllers
             return View();
         }
 
-        [HttpPost]
+       [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
-            // Проверка за съществуващ потребител с въведения имейл и парола
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
-            if (user == null)
+            // Проверка за съществуващ потребител с въведения имейл
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                // Ако потребителят не е намерен, добавяме грешка в ModelState
+                // Ако потребителят не е намерен или паролата не съвпада
                 ModelState.AddModelError(string.Empty, "Грешен имейл или парола. Моля, опитайте отново.");
                 return View();
             }
 
             // Съхраняване на името и ролята на потребителя в сесията
             HttpContext.Session.SetString("UserName", $"{user.FirstName} {user.LastName}");
-            HttpContext.Session.SetString("UserRole", user.Role); // Съхраняване на ролята
+            HttpContext.Session.SetString("UserRole", user.Role);
 
             // Пренасочване в зависимост от ролята
-            return RedirectToAction("index", "Home"); 
+            return RedirectToAction("Index", "Home");
         }
 
         // 👉 GET: /User/Logout

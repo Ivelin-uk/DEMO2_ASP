@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "apjH4Iq4BxUueE/t4aBbs3DHYy2Vasn/hvb+E6qSs+zIQ885oKPMlPwZjLEcDN4paH6cKZXkOYwpSx3i2Nlpug==",
+  "dgSpecHash": "W8dwVpj1V48W19SPf6VatDtG07GIGLoMLzGq/AXy8jgXrooeuScP6uDSqxvjqvbYudwaZRq/YpKoEhw4lSVsOw==",
   "success": true,
   "projectFilePath": "/Users/ivelindilqnovmihaylov/Desktop/UKTC/ИТ - кариера/C#_DEMOS/2025_modul07/DEMO2_ASP/MyMvcApp.csproj",
   "expectedPackageFiles": [
+    "/Users/ivelindilqnovmihaylov/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/ivelindilqnovmihaylov/.nuget/packages/microsoft.entityframeworkcore/8.0.13/microsoft.entityframeworkcore.8.0.13.nupkg.sha512",
     "/Users/ivelindilqnovmihaylov/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.13/microsoft.entityframeworkcore.abstractions.8.0.13.nupkg.sha512",
     "/Users/ivelindilqnovmihaylov/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.13/microsoft.entityframeworkcore.analyzers.8.0.13.nupkg.sha512",
