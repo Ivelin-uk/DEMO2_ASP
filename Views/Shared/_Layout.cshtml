@@ -21,14 +21,22 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Начало</a>
+                        </li>
                         @if (HttpContextAccessor.HttpContext?.Session.GetString("UserName") != null)
                         {
+                            @if (HttpContextAccessor.HttpContext?.Session.GetString("UserRole") == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="User" asp-action="Users">Списък с потребители</a>
+                                </li>
+                            }
+                         
                             <li class="nav-item">
-                                <span class="nav-link text-dark">Здравей, @HttpContextAccessor.HttpContext.Session.GetString("UserName")!</span>
+                                <a class="nav-link text-dark" asp-controller="User" asp-action="Profil">Пофил</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="User" asp-action="Users">Списък с потребители</a>
-                            </li>
+                    
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="User" asp-action="Logout">Изход</a>
                             </li>

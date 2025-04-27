@@ -27,5 +27,9 @@ namespace MyMvcApp.Models
         [RegularExpression(@"^(?=.*[A-Z]).+$", ErrorMessage = "Паролата трябва да съдържа поне една главна буква.")]
         [Column("Password")]
         public string Password { get; set; }
+
+        [Required]
+        [Column("Role")]
+        public string Role { get; set; } 
     }
 }
